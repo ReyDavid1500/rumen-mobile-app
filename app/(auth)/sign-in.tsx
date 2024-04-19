@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -12,7 +12,9 @@ const SignIn = () => {
     password: "",
   });
 
-  const submit = () => {};
+  const submit = () => {
+    router.push("/shopping");
+  };
 
   return (
     <SafeAreaView className="bg-black h-full">
@@ -23,7 +25,7 @@ const SignIn = () => {
             resizeMode="contain"
             className="w-[180px] h-[80px]"
           />
-          <Text className="text-2xl mt-10 text-white font-psemibold">
+          <Text className="text-xl mt-10 text-white font-psemibold">
             Ingresa a tu cuenta en Rumen!
           </Text>
           <FormField
@@ -45,12 +47,12 @@ const SignIn = () => {
             containerStyles="mt-10"
           />
           <View className="justify-center flex-row gap-2 pt-5">
-            <Text className="text-gray-100 text-lg font-pregular">
+            <Text className="text-gray-100 text-md font-pregular">
               Aún no te registras?
             </Text>
             <Link
               href="/sign-up"
-              className="text-light-green text-lg font-psemibold"
+              className="text-light-green text-md font-psemibold"
             >
               Registrate Aquí
             </Link>

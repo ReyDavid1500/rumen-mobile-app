@@ -19,14 +19,14 @@ const Card: React.FC<CardProps> = ({
   handlePress,
 }) => {
   return (
-    <View className="border-2 border-gray-400 rounded-lg overflow-hidden bg-white h-[390px] w-[300px] mb-5">
+    <View className="border-2 border-gray-400 rounded-lg overflow-hidden bg-white h-[430px] w-[330px] mb-5">
       <Image
         className="w-full h-[70%] object-cover mb-2"
         source={{ uri: image }}
         resizeMode="cover"
       />
       <View>
-        <View className="flex-row justify-between mb-2 pl-2 pr-2">
+        <View className="flex-row justify-between mb-2 px-2">
           <View>
             <Text className="font-bold">{name}</Text>
             <Text>{description}</Text>
@@ -39,7 +39,7 @@ const Card: React.FC<CardProps> = ({
         <CustomButton
           handlePress={handlePress}
           title="Agregar al pedido!"
-          containerStyles="w-[70%] self-center"
+          containerStyles="w-[90%] self-center"
         />
       </View>
     </View>

@@ -19,13 +19,13 @@ const SignUp = () => {
   return (
     <SafeAreaView className="bg-black h-full">
       <ScrollView>
-        <View className="w-full justify-center h-full px-4 my-7">
+        <View className="w-full justify-center h-full px-4 my-4">
           <Image
             source={images.rumen}
             resizeMode="contain"
             className="w-[100px] h-[50px]"
           />
-          <Text className="text-lg mt-4 text-white font-psemibold">
+          <Text className="text-lg mt-2 text-white font-psemibold">
             Registrate en Rumen!
           </Text>
           <FormField

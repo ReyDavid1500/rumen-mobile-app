@@ -9,13 +9,13 @@ export default function App() {
   return (
     <SafeAreaView className="bg-black h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="w-full justify-center items-center h-[100vh]">
+        <View className="w-full justify-center items-center min-h-[85vh]">
           <Image
             source={images.rumen}
             className="w-[300px] h-[200px]"
             resizeMode="contain"
           />
-          <Text className="text-3xl font-pmedium text-white">
+          <Text className="text-2xl font-pmedium text-white">
             Bienvenido a Rumen!
           </Text>
           <CustomButton
@@ -24,12 +24,12 @@ export default function App() {
             containerStyles="mt-7"
           />
           <View className="flex-row gap-2 mt-10 items-center">
-            <Text className="text-white font-pextralight text-lg">
+            <Text className="text-white font-pextralight text-md">
               Aún no tienes cuenta?
             </Text>
             <Link
               href="/sign-up"
-              className="text-light-green font-pbold text-lg"
+              className="text-light-green font-pbold text-md"
             >
               Registrate!!
             </Link>
