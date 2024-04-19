@@ -1,14 +1,95 @@
-import { View, Text } from "react-native";
+import { View, Text, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
+import { icons } from "../../constants";
+
+type TabProps = {
+  icon: ImageSourcePropType | undefined;
+  color: string;
+  name: string;
+  focused: boolean;
+};
+
+const TabIcon = ({ icon, color, name, focused }: TabProps) => {
+  return (
+    <View className="items-center justify-center gap-2">
+      <Image
+        source={icon}
+        resizeMode="contain"
+        tintColor={color}
+        className="w-6 h-6"
+      />
+      <Text
+        className={`${focused ? "font-pbold" : "font-pregular"} text-xs`}
+        style={{ color: color }}
+      >
+        {name}
+      </Text>
+    </View>
+  );
+};
 
 const TabsLayout = () => {
   return (
     <>
-      <Tabs>
-        <Tabs.Screen name="shopping" options={{ headerShown: false }} />
-        <Tabs.Screen name="cart" options={{ headerShown: false }} />
-        <Tabs.Screen name="account" options={{ headerShown: false }} />
+      <Tabs
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarActiveTintColor: "#FCBF49",
+          tabBarInactiveTintColor: "#000",
+          tabBarStyle: {
+            backgroundColor: "#00A896",
+            borderTopWidth: 1,
+            borderTopColor: "#028090",
+            height: 70,
+          },
+        }}
+      >
+        <Tabs.Screen
+          name="shopping"
+          options={{
+            title: "Shopping",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.home}
+                color={color}
+                name="Productos"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="cart"
+          options={{
+            title: "Pedido",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.order}
+                color={color}
+                name="Pedido"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="account"
+          options={{
+            title: "Cuenta",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.account}
+                color={color}
+                name="Cuenta "
+                focused={focused}
+              />
+            ),
+          }}
+        />
       </Tabs>
     </>
   );
