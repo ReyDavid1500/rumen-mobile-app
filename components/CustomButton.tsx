@@ -17,7 +17,7 @@ const CustomButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <TouchableOpacity
-      className={`bg-rumen-orange rounded-lg p-2 ${containerStyles} ${
+      className={`bg-rumen-orange rounded-lg p-2 h-16 justify-center ${containerStyles} ${
         isLoading ? "opacity-50" : ""
       }`}
       onPress={handlePress}

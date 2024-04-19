@@ -23,18 +23,20 @@ export default function App() {
             handlePress={() => router.push("/sign-in")}
             containerStyles="mt-7"
           />
-          <Text className="text-white font-pextralight mt-10 text-lg">
-            Aún no tienes cuenta?
-          </Text>
-          <Link
-            href="/sign-up"
-            className="text-light-green font-pextralight text-md mt-2"
-          >
-            Registrate!!
-          </Link>
+          <View className="flex-row gap-2 mt-10 items-center">
+            <Text className="text-white font-pextralight text-lg">
+              Aún no tienes cuenta?
+            </Text>
+            <Link
+              href="/sign-up"
+              className="text-light-green font-pbold text-lg"
+            >
+              Registrate!!
+            </Link>
+          </View>
         </View>
+        <StatusBar backgroundColor="#161622" style="light" />
       </ScrollView>
-      <StatusBar style="light" />
     </SafeAreaView>
   );
 }

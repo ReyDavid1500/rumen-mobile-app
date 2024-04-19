@@ -22,7 +22,7 @@ const RootLayout = () => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, []);
+  }, [fontsLoaded, error]);
 
   if (!fontsLoaded && !error) {
     return;
@@ -31,6 +31,7 @@ const RootLayout = () => {
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
     </Stack>
   );
 };
