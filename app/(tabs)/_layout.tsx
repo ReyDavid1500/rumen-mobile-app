@@ -12,12 +12,12 @@ type TabProps = {
 
 const TabIcon = ({ icon, color, name, focused }: TabProps) => {
   return (
-    <View className="items-center justify-center gap-2">
+    <View className="items-center justify-center gap-2 mt-1">
       <Image
         source={icon}
         resizeMode="contain"
         tintColor={color}
-        className="w-6 h-6"
+        className="w-5 h-5"
       />
       <Text
         className={`${focused ? "font-pbold" : "font-pregular"} text-xs`}
@@ -41,7 +41,7 @@ const TabsLayout = () => {
             backgroundColor: "#00A896",
             borderTopWidth: 1,
             borderTopColor: "#028090",
-            height: 90,
+            height: 80,
             paddingHorizontal: 15,
           },
         }}

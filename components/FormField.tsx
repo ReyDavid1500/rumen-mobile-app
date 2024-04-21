@@ -37,7 +37,10 @@ const FormField: React.FC<FormFieldProps> = ({
           }
         />
         {(title === "Contraseña" || title === "Valida tu Contraseña") && (
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+          <TouchableOpacity
+            onPressIn={() => setShowPassword(true)}
+            onPressOut={() => setShowPassword(false)}
+          >
             <Image
               source={!showPassword ? icons.eye : icons.eyeHide}
               className="h-8 w-8"
