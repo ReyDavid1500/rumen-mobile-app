@@ -10,6 +10,7 @@ import Card from "../../components/Card";
 import mockData from "../../mockData/products.json";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
+import { router } from "expo-router";
 
 const products = mockData.data;
 
@@ -34,10 +35,12 @@ const Shopping = () => {
     setSelectedCategory(category);
   };
 
-  const handleSelectedProduct = () => {};
+  const handleSelectedProduct = () => {
+    router.push("/(shopping)/singleCard");
+  };
 
   return (
-    <SafeAreaView className="bg-black h-full pt-4">
+    <SafeAreaView className="bg-black h-full mt-4">
       <View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {categoryArray.map((category) => (
@@ -61,19 +64,18 @@ const Shopping = () => {
           ))}
         </ScrollView>
       </View>
-      <View className="items-center">
+      <View className="ml-3 flex-1 mb-2">
         <SectionList
           stickySectionHeadersEnabled={true}
           sections={groupedProducts.filter(
             (group) =>
-              selectedCategory === null ||
               group.title === selectedCategory ||
               selectedCategory === allProductsName
           )}
           data={products}
           renderSectionHeader={({ section: { title } }) => {
             return (
-              <Text className="mb-2 items-center font-bold font-psemibold text-center text-2xl text-white bg-gray-950 py-1">
+              <Text className="mb-5 font-bold font-psemibold text-center text-2xl text-white bg-gray-950 py-1">
                 {title}
               </Text>
             );

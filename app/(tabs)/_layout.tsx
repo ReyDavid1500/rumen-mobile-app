@@ -1,6 +1,6 @@
 import { View, Text, Image, ImageSourcePropType } from "react-native";
 import React from "react";
-import { Tabs } from "expo-router";
+import { Stack, Tabs } from "expo-router";
 import { icons } from "../../constants";
 
 type TabProps = {
@@ -28,6 +28,8 @@ const TabIcon = ({ icon, color, name, focused }: TabProps) => {
     </View>
   );
 };
+
+const itemsInCart = 2;
 
 const TabsLayout = () => {
   return (
@@ -72,6 +74,12 @@ const TabsLayout = () => {
                 focused={focused}
               />
             ),
+            tabBarBadge: itemsInCart,
+            tabBarBadgeStyle: {
+              backgroundColor: "#F77F00",
+              fontSize: 15,
+              fontWeight: "bold",
+            },
           }}
         />
         <Tabs.Screen

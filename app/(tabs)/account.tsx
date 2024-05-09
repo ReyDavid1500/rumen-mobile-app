@@ -3,8 +3,8 @@ import React from "react";
 
 const Account = () => {
   return (
-    <View>
-      <Text>Account</Text>
+    <View className="justify-center items-center h-full">
+      <Text className="text-2xl font-psemibold">Your Account</Text>
     </View>
   );
 };

@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ name, image, description, price }) => {
     <View className="bg-black overflow-hidden mb-5 flex-row max-w-[95%]">
       <Image
         source={{ uri: image }}
-        className="w-[100px] h-[100px] mr-3 border-2 border-gray-800 rounded-lg"
+        className="w-[100px] h-[100px] mr-3 rounded-lg"
         resizeMode="cover"
       />
       <View>

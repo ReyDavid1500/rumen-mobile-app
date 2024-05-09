@@ -5,6 +5,8 @@ import eye from "../assets/icons/eye.png"
 import eyeHide from "../assets/icons/eyeHide.png"
 import trash from "../assets/icons/trash.png"
 import whiteTrash from "../assets/icons/whiteTrash.png"
+import plus from "../assets/icons/plus.png"
+import minus from "../assets/icons/minus.png"
 
 export default {
     account,
@@ -14,4 +16,6 @@ export default {
     eyeHide,
     trash,
     whiteTrash,
+    plus,
+    minus
 }
