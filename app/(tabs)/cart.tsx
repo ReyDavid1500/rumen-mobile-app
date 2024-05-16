@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
-import React from "react";
+import { View, Text, ScrollView, FlatList, Platform } from "react-native";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { icons } from "../../constants";
 import { formatCurrency } from "../../utils/assets";
 import CustomButton from "../../components/CustomButton";
 import { router } from "expo-router";
+import CartItem from "../../components/CartItem";
 
 const shoppingCart = {
   id: 1,
@@ -31,73 +31,33 @@ const shoppingCart = {
   total: 31250,
 };
 
+const data = shoppingCart.products;
+
 const Cart = () => {
   return (
     <SafeAreaView className="bg-black h-full px-5">
-      <ScrollView>
-        <View>
-          <Text className="text-center text-white text-2xl font-psemibold my-6">
-            Tu pedido!
-          </Text>
-          <View>
-            {shoppingCart.products.map((item) => {
-              return (
-                <View key={item.id}>
-                  <View className="flex-row justify-between">
-                    <View className="flex-row gap-5">
-                      <Image
-                        source={{ uri: item.image }}
-                        className="w-[60px] h-[60px] rounded-lg"
-                        resizeMode="cover"
-                      />
-                      <Text className="mb-4 text-xl text-white font-pmedium">
-                        {item.name}
-                      </Text>
-                    </View>
-                    <View className="flex-row mb-5 justify-center items-center border-[0.5px] border-white rounded-full px-4 py-2 bg-gray-800">
-                      <TouchableOpacity>
-                        <Image source={icons.minus} className="w-5 h-5" />
-                      </TouchableOpacity>
-                      <Text className="text-white font-pbold mx-7 text-lg">
-                        1
-                      </Text>
-                      <TouchableOpacity>
-                        <Image source={icons.plus} className="w-5 h-5" />
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                  <View className="flex-row justify-around my-4 pb-3 border-b-2 border-b-gray-600">
-                    <View className="flex-row">
-                      <Text className="text-white">
-                        {formatCurrency(item.price)}/
-                      </Text>
-                      <Text className="text-white">Unidad</Text>
-                    </View>
-                    <View className="flex-row gap-5">
-                      <TouchableOpacity>
-                        <Image source={icons.whiteTrash} className="w-6 h-6" />
-                      </TouchableOpacity>
-                      <Text className="text-white">
-                        {formatCurrency(item.quantity * item.price)}
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              );
-            })}
-          </View>
-        </View>
-        <View className="px-3 mb-10">
-          <Text className="text-center text-white text-2xl font-psemibold my-6">
+      <View className="h-full pb-5">
+        <Text className="text-center text-white text-2xl font-psemibold my-6">
+          Tu pedido!
+        </Text>
+        <FlatList
+          data={data}
+          keyExtractor={(product) => product.id.toString()}
+          renderItem={({ item }) => (
+            <CartItem image={item.image} name={item.name} price={item.price} />
+          )}
+        />
+        <View className="px-3 mb-3">
+          <Text className="text-center text-white text-2xl font-psemibold my-3">
             Total Estimado
           </Text>
-          <View className="flex-row justify-between mb-4">
+          <View className="flex-row justify-between mb-2">
             <Text className="text-white text-xl font-pregular">Subtotal:</Text>
             <Text className="text-white text-xl font-pregular">
               {formatCurrency(shoppingCart.subtotal)}
             </Text>
           </View>
-          <View className="flex-row justify-between mb-4">
+          <View className="flex-row justify-between mb-2">
             <Text className="text-white text-lg font-plight">Despacho:</Text>
             <Text className="text-white text-lg font-plight">
               {formatCurrency(shoppingCart.shipping)}
@@ -113,7 +73,7 @@ const Cart = () => {
             router.push("/(shopping)/payment");
           }}
         />
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

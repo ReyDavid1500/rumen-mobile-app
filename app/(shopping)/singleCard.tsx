@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -29,6 +29,8 @@ const product = {
 };
 
 const SingleCard = () => {
+  const [productQuantity, setProductQuantity] = useState(1);
+
   return (
     <SafeAreaView>
       <View className="bg-black items-center justify-center h-full">
@@ -49,11 +51,23 @@ const SingleCard = () => {
           </View>
         </View>
         <View className="flex-row mb-5 justify-center items-center border-[0.5px] bg-gray-800 border-white px-5 py-2 rounded-full">
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              if (productQuantity > 1) {
+                setProductQuantity(productQuantity - 1);
+              } else {
+                setProductQuantity(1);
+              }
+            }}
+          >
             <Image source={icons.minus} className="w-10 h-10" />
           </TouchableOpacity>
-          <Text className="text-white font-pbold mx-7 text-2xl">1</Text>
-          <TouchableOpacity>
+          <Text className="text-white font-pbold mx-7 text-2xl">
+            {productQuantity}
+          </Text>
+          <TouchableOpacity
+            onPress={() => setProductQuantity(productQuantity + 1)}
+          >
             <Image source={icons.plus} className="w-10 h-10" />
           </TouchableOpacity>
         </View>
