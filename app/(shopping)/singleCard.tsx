@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from "react-native";
 import { formatCurrency } from "../../utils/assets";
 import CustomButton from "../../components/CustomButton";
@@ -76,6 +77,9 @@ const SingleCard = () => {
           containerStyles="w-[90%]"
           handlePress={() => {
             router.push("/(tabs)/shopping");
+            Alert.alert("Listo!", "Producto añadido a tu pedido", [
+              { text: "Continuar comprando", style: "cancel" },
+            ]);
           }}
         />
       </View>

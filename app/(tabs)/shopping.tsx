@@ -40,7 +40,7 @@ const Shopping = () => {
   };
 
   return (
-    <SafeAreaView className="bg-black h-full mt-4">
+    <SafeAreaView className="bg-black h-full">
       <View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {categoryArray.map((category) => (
@@ -64,7 +64,7 @@ const Shopping = () => {
           ))}
         </ScrollView>
       </View>
-      <View className="ml-3 flex-1 mb-2">
+      <View className="ml-3">
         <SectionList
           stickySectionHeadersEnabled={true}
           sections={groupedProducts.filter(
