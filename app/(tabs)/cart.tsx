@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, FlatList, Platform } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { formatCurrency } from "../../utils/assets";
@@ -7,10 +7,10 @@ import { router } from "expo-router";
 import CartItem from "../../components/CartItem";
 
 const shoppingCart = {
-  id: 1,
+  id: "1",
   products: [
     {
-      id: 1,
+      id: "2",
       name: "Brisket",
       price: 15750,
       quantity: 1,
@@ -18,7 +18,7 @@ const shoppingCart = {
         "https://www.deadbirdbbq.com/cdn/shop/articles/Brisket_9efad525-42b7-4bef-9de8-e558e86d4a9e.jpg?v=1640336095&width=1100",
     },
     {
-      id: 2,
+      id: "3",
       name: "Pulled Pork",
       price: 12500,
       quantity: 1,
@@ -42,7 +42,7 @@ const Cart = () => {
         </Text>
         <FlatList
           data={data}
-          keyExtractor={(product) => product.id.toString()}
+          keyExtractor={(product) => product.id}
           renderItem={({ item }) => (
             <CartItem image={item.image} name={item.name} price={item.price} />
           )}

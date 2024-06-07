@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
 import { formatCurrency } from "../../utils/assets";
 import CustomButton from "../../components/CustomButton";
 import { icons } from "../../constants";

@@ -33,7 +33,11 @@ const RootLayout = () => {
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(shopping)" options={{ headerShown: true }} />
+      <Stack.Screen name="(shopping)" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="singleProduct/[id]"
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 };
