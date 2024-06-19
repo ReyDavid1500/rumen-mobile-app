@@ -13,6 +13,7 @@ import { icons } from "../../constants";
 import { router, useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Product } from "../(tabs)/shopping";
+import { BASE_URL } from "@env";
 
 const SingleCard = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -23,9 +24,7 @@ const SingleCard = () => {
 
   const getProduct = async () => {
     try {
-      const res = await fetch(
-        `https://rumen-server.onrender.com/products/id/${id}`
-      );
+      const res = await fetch(`${BASE_URL}/products/id/${id}`);
       const data = await res.json();
       setProduct(data);
     } catch (error) {

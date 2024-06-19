@@ -10,7 +10,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Card from "../../components/Card";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { router, usePathname } from "expo-router";
+import { router } from "expo-router";
+import { BASE_URL } from "@env";
 
 export type Product = {
   _id: string;
@@ -27,7 +28,7 @@ const Shopping = () => {
 
   const getProducts = async () => {
     try {
-      const res = await fetch("https://rumen-server.onrender.com/products");
+      const res = await fetch(`${BASE_URL}/products`);
       const data = await res.json();
       setProducts(data);
     } catch (error) {
